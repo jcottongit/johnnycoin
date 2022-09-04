@@ -52,7 +52,7 @@ describe('Bid', function () {
         );
       });
 
-      it('should fail if the startTime is before the endDate', async () => {
+      it('should fail if the startTime is not before the endDate', async () => {
         const { johnnyCoin } = await loadFixture(deployJohnnyCoinFixture);
         const latestTime = await time.latest();
         const Bid = await ethers.getContractFactory('Bid');
@@ -202,7 +202,7 @@ describe('Bid', function () {
       });
     });
 
-    it('transfers token to highest bidder when relaseToken', async () => {
+    it('transfers token to highest bidder when releaseToken called', async () => {
       const { johnnyCoin } = await loadFixture(deployJohnnyCoinFixture);
       const startDate = await time.latest() + ONE_DAY_IN_SECS;
       const endDate = startDate + ONE_DAY_IN_SECS;
